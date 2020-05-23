@@ -28,6 +28,7 @@ class CountriesViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        TopBarView.setTopBar(image: "close", text: "CHOOSE COUNTRY")
         countries = createListOfCountries()
         tableView.dataSource = self
     }

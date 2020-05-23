@@ -20,6 +20,7 @@
 		7A05CDD92479D388006BE80C /* CountriesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05CDD82479D388006BE80C /* CountriesTableCell.swift */; };
 		7A05CDDB2479D3A0006BE80C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05CDDA2479D3A0006BE80C /* Country.swift */; };
 		7A05CDDD2479D3DF006BE80C /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05CDDC2479D3DF006BE80C /* CountriesViewController.swift */; };
+		7AD267672479E3EA0006C555 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD267662479E3EA0006C555 /* FirstScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		7A05CDD82479D388006BE80C /* CountriesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesTableCell.swift; sourceTree = "<group>"; };
 		7A05CDDA2479D3A0006BE80C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		7A05CDDC2479D3DF006BE80C /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
+		7AD267662479E3EA0006C555 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		7A05CD9F2479AE9A006BE80C /* Covid */ = {
 			isa = PBXGroup;
 			children = (
+				7A05CDE22479DE86006BE80C /* FirstScreen */,
 				7A05CDD72479D287006BE80C /* TopBar */,
 				7A05CDD62479D27D006BE80C /* Countries */,
 				7A05CDA02479AE9A006BE80C /* AppDelegate.swift */,
@@ -157,6 +160,14 @@
 				7A05CDD02479B200006BE80C /* TopBarView.swift */,
 			);
 			path = TopBar;
+			sourceTree = "<group>";
+		};
+		7A05CDE22479DE86006BE80C /* FirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7AD267662479E3EA0006C555 /* FirstScreenViewController.swift */,
+			);
+			path = FirstScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A05CDA52479AE9A006BE80C /* ViewController.swift in Sources */,
+				7AD267672479E3EA0006C555 /* FirstScreenViewController.swift in Sources */,
 				7A05CDDD2479D3DF006BE80C /* CountriesViewController.swift in Sources */,
 				7A05CDA12479AE9A006BE80C /* AppDelegate.swift in Sources */,
 				7A05CDA32479AE9A006BE80C /* SceneDelegate.swift in Sources */,

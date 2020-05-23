@@ -38,15 +38,15 @@ class TopBarView: UIView{
         //self.backgroundColor = UIColor.blue
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setConstraints()
-        let rectLabel = CGRect(x: 135, y: 60, width: 200, height: 30)
+        let rectLabel = CGRect(x: 115, y: 60, width: 220, height: 30)
         topLabel = UILabel(frame: rectLabel)
-        topLabel.text = "CHOOSE COUNTRY"
+      //  topLabel.text = "CHOOSE COUNTRY"
         topLabel.textColor = UIColor.white
         self.addSubview(topLabel)
       
         let rectImage = CGRect(x: 374, y: 60, width: 25, height: 25)
         topImage = UIImageView(frame: rectImage)
-        topImage.image = UIImage(named: "close")
+      // topImage.image = UIImage(named: "close")
         self.addSubview(topImage)
     }
     
@@ -54,6 +54,14 @@ class TopBarView: UIView{
         super.init(coder: coder)
         commonI()
     }
+    
+    func setTopBar(image: String, text: String){
+        topLabel.text = text
+        topImage.image = UIImage(named: image)
+        
+    }
+    
+    
     
    
 }
