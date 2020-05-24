@@ -10,8 +10,15 @@ import Foundation
 
 class Country {
     var name: String
+    var confirmed: String
+    var recovered: String
+    var deaths: String
     
-    init (name:String){
+    
+    init (name: String, confirmed: String, recovered: String, deaths: String){
         self.name = name
+        self.confirmed = confirmed
+        self.recovered = recovered
+        self.deaths = deaths
     }
 }
