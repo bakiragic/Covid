@@ -25,11 +25,15 @@ class FirstScreenViewController: UIViewController {
     }
 
     static func setCountry(country: Country){
-     //   for element in countries {
-       //     if !countries.contains(where: element.equal(country: country)){
-                countries.append(country)
-         //   }
-        //}
+        var pom: Bool = false
+        for element in countries {
+            if element.equal(country: country){
+                pom = true
+           }
+        }
+        if pom == false{
+            countries.append(country)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +74,9 @@ extension FirstScreenViewController: UITableViewDelegate{
         if editingStyle == .delete{
             FirstScreenViewController.countries.remove(at: indexPath.row)
             detailsTable.deleteRows(at: [indexPath], with: .left)
+            if(FirstScreenViewController.countries.count == 0){
+                noCountriesView.isHidden = false
+            }
            }
        }
 }
