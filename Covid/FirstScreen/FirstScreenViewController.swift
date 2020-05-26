@@ -14,23 +14,30 @@ class FirstScreenViewController: UIViewController {
     @IBOutlet var TopBar: TopBarView!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var detailsTable: UITableView!
+    @IBOutlet var noCountriesView: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         TopBar.setTopBar(image: "add", text: "NEW COVID INFORMATION")
-        detailsTable.dataSource = self
-        
+        detailsTable.dataSource = self        
     }
 
     static func setCountry(country: Country){
-        countries.append(country)
+     //   for element in countries {
+       //     if !countries.contains(where: element.equal(country: country)){
+                countries.append(country)
+         //   }
+        //}
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         detailsTable.reloadData()
+        if FirstScreenViewController.countries.count != 0{
+            noCountriesView.isHidden = true
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -55,7 +62,19 @@ extension FirstScreenViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FirstScreenViewController.countries.count
         }
+    
     }
+
+extension FirstScreenViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            FirstScreenViewController.countries.remove(at: indexPath.row)
+            detailsTable.deleteRows(at: [indexPath], with: .left)
+           }
+       }
+}
+
+
     
 
 

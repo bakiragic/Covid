@@ -49,6 +49,7 @@ class CountriesViewController: UIViewController{
         return pomCountries
 
     }
+    
 }
     
 extension CountriesViewController: UITableViewDataSource{
@@ -71,4 +72,14 @@ extension CountriesViewController: UITableViewDelegate{
         FirstScreenViewController.setCountry(country: countries[indexPath.row])
         navigationController?.popViewController(animated: true)        
     }
+    
+   // func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        //UISwipeActionsConfiguration? {
+          //  let action = deleteAction(at: indexPath)
+       // }
+       // return UISwipeActionsConfiguration(actions: delete)
+  //  }
+    
+   
+    
 }

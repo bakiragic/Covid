@@ -16,20 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="mCl-Sb-7db">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="MOa-v1-C9x">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="SyJ-TF-f5M"/>
-                                    <constraint firstAttribute="height" constant="896" id="zpZ-aR-JwK"/>
+                                    <constraint firstAttribute="width" constant="414" id="9dD-0c-XnD"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="TopBarColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="mCl-Sb-7db" secondAttribute="bottom" id="Jzx-2d-Of6"/>
-                            <constraint firstItem="mCl-Sb-7db" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="M2W-eU-9BL"/>
-                            <constraint firstItem="mCl-Sb-7db" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ijq-qZ-xqh"/>
-                            <constraint firstItem="mCl-Sb-7db" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xYM-OM-TBa"/>
+                            <constraint firstItem="MOa-v1-C9x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="907-OG-2sv"/>
+                            <constraint firstItem="MOa-v1-C9x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="c2b-Bv-Do5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MOa-v1-C9x" secondAttribute="bottom" id="mN5-IR-a0k"/>
+                            <constraint firstItem="MOa-v1-C9x" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="p1t-QM-eAT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

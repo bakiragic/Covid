@@ -21,4 +21,13 @@ class Country {
         self.recovered = recovered
         self.deaths = deaths
     }
+    
+    func equal(country: Country)->Bool{
+        if self.name == country.name{
+            return true
+        }
+        else{
+            return false
+        }
+    }
 }
