@@ -8,11 +8,13 @@
 
 import Foundation
 
-class Country {
+class Country{
+   
     var name: String
     var confirmed: String
     var recovered: String
     var deaths: String
+    var selected: Bool
     
     
     init (name: String, confirmed: String, recovered: String, deaths: String){
@@ -20,6 +22,7 @@ class Country {
         self.confirmed = confirmed
         self.recovered = recovered
         self.deaths = deaths
+        self.selected = false
     }
     
     func equal(country: Country)->Bool{
@@ -31,3 +34,4 @@ class Country {
         }
     }
 }
+

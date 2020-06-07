@@ -11,10 +11,26 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+     var countries: [Country] = []
+     var indexes: [Int] = []
 
+    
+    func createListOfCountries() -> [Country] {
+        var pomCountries: [Country] = []
+        
+        pomCountries.append(Country(name: "Bosnia and Herzegovina", confirmed: "Confirmed: 2403", recovered: "Recovered: 1573", deaths: "Deaths: 139"))
+        pomCountries.append(Country(name: "Croatia", confirmed: "Confirmed: 2243", recovered: "Recovered: 2023", deaths: "Deaths: 99"))
+        pomCountries.append(Country(name: "Serbia", confirmed: "Confirmed: 11159", recovered: "Recovered: 5857", deaths: "Deaths: 238"))
+        pomCountries.append(Country(name: "Montenegro", confirmed: "Confirmed: 324", recovered: "Recovered: 315", deaths: "Deaths: 9"))
+        pomCountries.append(Country(name: "North Macedonia", confirmed: "Confirmed: 1978", recovered: "Recovered: 1422", deaths: "Deaths: 113"))
+        
+        return pomCountries
 
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        countries = createListOfCountries()
         return true
     }
 

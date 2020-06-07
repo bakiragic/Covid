@@ -11,7 +11,7 @@
         <!--Countries View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CountriesViewController" customModule="Covid" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CountriesViewController" id="BYZ-38-t0r" customClass="CountriesViewController" customModule="Covid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -279,7 +279,6 @@
                         <outlet property="addButton" destination="MzD-H7-NTw" id="OXb-ZU-YdB"/>
                         <outlet property="detailsTable" destination="8zT-Ia-VfZ" id="7Kf-Uu-ioc"/>
                         <outlet property="noCountriesView" destination="o0o-RA-Xfc" id="lps-hP-2QV"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToCountries" id="wN5-kF-6Hz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9f-ak-n1D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
