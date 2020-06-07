@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import CoreData
 import UIKit
 
 class CountriesViewController: UIViewController{
@@ -22,10 +22,6 @@ class CountriesViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
     
     
     override func viewDidLoad() {
@@ -35,33 +31,35 @@ class CountriesViewController: UIViewController{
         tableView.dataSource = self
         tableView.delegate = self
     }
-  
-    
-    
-    
     
     
 }
     
 extension CountriesViewController: UITableViewDataSource{
     func tableView( _ tableView: UITableView, numberOfRowsInSection section: Int)->Int {
-        return appDelegate.countries.count
+      //  return appDelegate.countries.count
+        return appDelegate.getDBsize()
     }
     
     func tableView( _ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let country = appDelegate.countries[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CountriesTableCell") as! CountriesTableCell
-        cell.setCountryName(country: country)
-        return cell
-    }
+            let country:[CountryBase] = DatabaseHelper.dbHelper.readAll()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CountriesTableCell") as! CountriesTableCell
+            print(indexPath.row)
+            print(country[indexPath.row].id)
+            cell.setCountryName(country: country[indexPath.row])
+            return cell
+
+        }
 }
 
 extension CountriesViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print("selected at row \(indexPath.row)")
-        appDelegate.countries[indexPath.row].selected = true
-        appDelegate.indexes.append(indexPath.row)
-        navigationController?.popViewController(animated: true)        
+        //appDelegate.countries[indexPath.row].selected = true
+       
+        print("update na \(indexPath.row)")
+        DatabaseHelper.dbHelper.update(id: indexPath.row, value: true)
+        navigationController?.popViewController(animated: true)
     }
 }

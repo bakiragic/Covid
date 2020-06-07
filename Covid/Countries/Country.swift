@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Country{
+/*class Country{
    
     var name: String
     var confirmed: String
@@ -33,5 +33,5 @@ class Country{
             return false
         }
     }
-}
+}*/
 

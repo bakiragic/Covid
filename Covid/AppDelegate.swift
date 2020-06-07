@@ -7,30 +7,40 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-     var countries: [Country] = []
-     var indexes: [Int] = []
-
+    lazy var persistentContainer: NSPersistentContainer = {
+           
+    let container = NSPersistentContainer(name: "Covid")
+    container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                   fatalError("Unresolved error \(error), \(error.userInfo)")
+               }
+           })
+           return container
+    }()
     
-    func createListOfCountries() -> [Country] {
-        var pomCountries: [Country] = []
-        
-        pomCountries.append(Country(name: "Bosnia and Herzegovina", confirmed: "Confirmed: 2403", recovered: "Recovered: 1573", deaths: "Deaths: 139"))
-        pomCountries.append(Country(name: "Croatia", confirmed: "Confirmed: 2243", recovered: "Recovered: 2023", deaths: "Deaths: 99"))
-        pomCountries.append(Country(name: "Serbia", confirmed: "Confirmed: 11159", recovered: "Recovered: 5857", deaths: "Deaths: 238"))
-        pomCountries.append(Country(name: "Montenegro", confirmed: "Confirmed: 324", recovered: "Recovered: 315", deaths: "Deaths: 9"))
-        pomCountries.append(Country(name: "North Macedonia", confirmed: "Confirmed: 1978", recovered: "Recovered: 1422", deaths: "Deaths: 113"))
-        
-        return pomCountries
-
+    func createData(){
+        DatabaseHelper.dbHelper.saveAllInitial()
     }
+    
+    func getDBsize() -> Int {
+        return 5
+    }
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        countries = createListOfCountries()
+      //  countries = createListOfCountries()
+               
+        let result = DatabaseHelper.dbHelper.readAll()
+        if result.count == 0{
+            print("prazna baza")
+            createData()
+        }
         return true
     }
 
@@ -46,6 +56,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+   
+    
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do{
+                try context.save()
+            }catch{
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
     }
 
 

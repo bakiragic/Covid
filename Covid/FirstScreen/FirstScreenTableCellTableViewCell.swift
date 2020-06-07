@@ -15,7 +15,7 @@ class FirstScreenTableCellTableViewCell: UITableViewCell {
     @IBOutlet var countryRecovered: UILabel!
     @IBOutlet var countryDeaths: UILabel!
 
-    func setCountry(country: Country){
+    func setCountry(country: CountryBase){
         countryName.text = country.name
         countryConfirmed.text = country.confirmed
         countryRecovered.text = country.recovered
