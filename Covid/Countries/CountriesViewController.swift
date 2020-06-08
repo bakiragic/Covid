@@ -42,23 +42,17 @@ extension CountriesViewController: UITableViewDataSource{
     }
     
     func tableView( _ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-            let country:[CountryBase] = DatabaseHelper.dbHelper.readAll()
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CountriesTableCell") as! CountriesTableCell
-            print(indexPath.row)
-            print(country[indexPath.row].id)
-            cell.setCountryName(country: country[indexPath.row])
-            return cell
-
-        }
+        let country:CountryBase = DatabaseHelper.dbHelper.read(id: indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CountriesTableCell") as! CountriesTableCell
+        cell.setCountryName(country: country)
+        return cell
+    }
 }
 
 extension CountriesViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print("selected at row \(indexPath.row)")
-        //appDelegate.countries[indexPath.row].selected = true
-       
-        print("update na \(indexPath.row)")
         DatabaseHelper.dbHelper.update(id: indexPath.row, value: true)
         navigationController?.popViewController(animated: true)
     }

@@ -81,7 +81,6 @@ class FirstScreenViewController: UIViewController {
     
    
     @IBAction func addCountry(sender: UIButton){
-       // self.performSegue(withIdentifier: "goToCountries", sender: self)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let countriesVC = storyboard.instantiateViewController(identifier: "CountriesViewController") as! CountriesViewController
         show(countriesVC, sender: self)
@@ -101,7 +100,7 @@ extension FirstScreenViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return countriesList.count//appDelegate.indexes.count//countriesCount()
+        return countriesList.count
     }
     
     }
@@ -109,9 +108,6 @@ extension FirstScreenViewController: UITableViewDataSource{
 extension FirstScreenViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-           // First.countries.remove(at: indexPath.row)
-           // appDelegate.countries[indexPath.row].selected = false
-            print(countriesList[indexPath.row].id)
             DatabaseHelper.dbHelper.update(id: countriesList[indexPath.row].id, value: false)
             countriesList.remove(at: indexPath.row)
             detailsTable.deleteRows(at: [indexPath], with: .left)
