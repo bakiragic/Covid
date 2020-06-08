@@ -37,12 +37,13 @@ class CountriesViewController: UIViewController{
     
 extension CountriesViewController: UITableViewDataSource{
     func tableView( _ tableView: UITableView, numberOfRowsInSection section: Int)->Int {
-        let countDB = DatabaseHelper.dbHelper.readAll()
-        return countDB.count
+        print("Velicina je \(DatabaseHelper.dbHelper.readAll().count)")
+        return DatabaseHelper.dbHelper.readAll().count
     }
     
     func tableView( _ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let country:CountryBase = DatabaseHelper.dbHelper.read(id: indexPath.row)
+        print(country.name)
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountriesTableCell") as! CountriesTableCell
         cell.setCountryName(country: country)
         return cell

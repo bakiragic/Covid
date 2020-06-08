@@ -18,7 +18,7 @@ class CountryBase: NSManagedObject{
     @NSManaged var selected: Bool
     
     class func newInstance(id: Int, name:String, confirmed: String, recovered: String, deaths: String, selected: Bool, context: NSManagedObjectContext) -> CountryBase {
-        var item: CountryBase = NSEntityDescription.insertNewObject(forEntityName: "CountryBase", into: context) as! CountryBase
+        let item: CountryBase = NSEntityDescription.insertNewObject(forEntityName: "CountryBase", into: context) as! CountryBase
         item.id = id
         item.name = name
         item.confirmed = confirmed

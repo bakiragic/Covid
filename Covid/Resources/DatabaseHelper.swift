@@ -18,7 +18,7 @@ class DatabaseHelper{
         
         guard let appD = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appD.persistentContainer.viewContext
-        guard let entity = NSEntityDescription.entity(forEntityName: "CountryBase", in: context) else { return }
+       // guard let entity = NSEntityDescription.entity(forEntityName: "CountryBase", in: context) else { return }
                 
         var countriespom: [CountryBase] = []
         countriespom.append(CountryBase.newInstance(id: 0, name: "Bosnia and Herzegovina", confirmed: "Confirmed: 2403", recovered: "Recovered: 1573", deaths: "Deaths: 139", selected: false, context: context))
@@ -27,7 +27,7 @@ class DatabaseHelper{
         countriespom.append(CountryBase.newInstance(id: 3, name: "Montenegro", confirmed: "Confirmed: 640", recovered: "Recovered: 640", deaths: "Deaths: 23", selected: false, context: context))
         countriespom.append(CountryBase.newInstance(id: 4, name: "North Macedonia", confirmed: "Confirmed: 2002", recovered: "Recovered: 1702", deaths: "Deaths: 109", selected: false, context: context))
         
-        for pom in 0...4{
+     /*   for pom in 0...4{
             let user = NSManagedObject(entity: entity, insertInto: context)
             user.setValue(pom, forKey: "id")
             user.setValue(countriespom[pom].name, forKey: "name")
@@ -35,7 +35,7 @@ class DatabaseHelper{
             user.setValue(countriespom[pom].recovered, forKey: "recovered")
             user.setValue(countriespom[pom].deaths, forKey: "deaths")
             user.setValue(countriespom[pom].selected, forKey: "selected")
-        }
+        }*/
         do{
             try context.save()
         }
@@ -44,27 +44,6 @@ class DatabaseHelper{
         }
     }
     
-    func saveEntry(obj: NSManagedObject){
-        let pom1: CountryBase = obj as! CountryBase
-        guard let appD = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appD.persistentContainer.viewContext
-        guard let entity = NSEntityDescription.entity(forEntityName: "CountryBase", in: context) else { return }
-        let user = NSManagedObject(entity: entity, insertInto: context)
-        user.setValue(pom1.id, forKey: "id")
-        user.setValue(pom1.name, forKey: "name")
-        user.setValue(pom1.confirmed, forKey: "confirmed")
-        user.setValue(pom1.recovered, forKey: "recovered")
-        user.setValue(pom1.deaths, forKey: "deaths")
-        user.setValue(pom1.selected, forKey: "selected")
-        
-        do{
-            try context.save()
-        }
-        catch let error as NSError{
-            print("Could not save", error)
-        }
-        
-    }
     
     func read(id: Int) -> CountryBase{
         var country = [CountryBase]()
