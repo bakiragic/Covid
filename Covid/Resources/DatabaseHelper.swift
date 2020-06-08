@@ -15,23 +15,26 @@ class DatabaseHelper{
     static let dbHelper = DatabaseHelper()
     
     func saveAllInitial(){
+        
         guard let appD = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appD.persistentContainer.viewContext
-                guard let entity = NSEntityDescription.entity(forEntityName: "CountryBase", in: context) else { return }
+        guard let entity = NSEntityDescription.entity(forEntityName: "CountryBase", in: context) else { return }
                 
-        let poms:[String] = ["Croatia", "Bosnia and Herzegovina", "Montenegro", "North Macedonia", "Serbia"]
-        let pomc:[String] = ["Confirmed: 2243", "Confirmed: 2403", "Confirmed: 640", "Confirmed: 2002", "Confirmed: 11159"]
-        let pomr:[String] = ["Recovered: 2023", "Recovered: 1573", "Recovered: 640", "Recovered: 1702", "Recovered: 5857"]
-        let pomd:[String] = ["Deaths: 99", "Deaths: 139", "Deaths: 23", "Deaths: 100", "Deaths: 239"]
+        var countriespom: [CountryBase] = []
+        countriespom.append(CountryBase.newInstance(id: 0, name: "Bosnia and Herzegovina", confirmed: "Confirmed: 2403", recovered: "Recovered: 1573", deaths: "Deaths: 139", selected: false, context: context))
+        countriespom.append(CountryBase.newInstance(id: 1, name: "Croatia", confirmed: "Confirmed: 2243", recovered: "Recovered: 2023", deaths: "Deaths: 99", selected: false, context: context))
+        countriespom.append(CountryBase.newInstance(id: 2, name: "Serbia", confirmed: "Confirmed: 11159", recovered: "Recovered: 5857", deaths: "Deaths: 239", selected: false, context: context))
+        countriespom.append(CountryBase.newInstance(id: 3, name: "Montenegro", confirmed: "Confirmed: 640", recovered: "Recovered: 640", deaths: "Deaths: 23", selected: false, context: context))
+        countriespom.append(CountryBase.newInstance(id: 4, name: "North Macedonia", confirmed: "Confirmed: 2002", recovered: "Recovered: 1702", deaths: "Deaths: 109", selected: false, context: context))
+        
         for pom in 0...4{
             let user = NSManagedObject(entity: entity, insertInto: context)
             user.setValue(pom, forKey: "id")
-            print(poms[pom])
-            user.setValue(poms[pom], forKey: "name")
-            user.setValue(pomc[pom], forKey: "confirmed")
-            user.setValue(pomr[pom], forKey: "recovered")
-            user.setValue(pomd[pom], forKey: "deaths")
-            user.setValue(false, forKey: "selected")
+            user.setValue(countriespom[pom].name, forKey: "name")
+            user.setValue(countriespom[pom].confirmed, forKey: "confirmed")
+            user.setValue(countriespom[pom].recovered, forKey: "recovered")
+            user.setValue(countriespom[pom].deaths, forKey: "deaths")
+            user.setValue(countriespom[pom].selected, forKey: "selected")
         }
         do{
             try context.save()

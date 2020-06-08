@@ -37,8 +37,8 @@ class CountriesViewController: UIViewController{
     
 extension CountriesViewController: UITableViewDataSource{
     func tableView( _ tableView: UITableView, numberOfRowsInSection section: Int)->Int {
-      //  return appDelegate.countries.count
-        return appDelegate.getDBsize()
+        let countDB = DatabaseHelper.dbHelper.readAll()
+        return countDB.count
     }
     
     func tableView( _ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell{

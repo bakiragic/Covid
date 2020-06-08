@@ -27,18 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DatabaseHelper.dbHelper.saveAllInitial()
     }
     
-    func getDBsize() -> Int {
-        return 5
-    }
-    
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
       //  countries = createListOfCountries()
                
         let result = DatabaseHelper.dbHelper.readAll()
         if result.count == 0{
-            print("prazna baza")
             createData()
         }
         return true
