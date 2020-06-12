@@ -136,7 +136,7 @@
                                     <constraint firstAttribute="height" constant="762" id="otq-VF-6Pd"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailsTableViewCell" id="d4Q-u3-cHz" customClass="DetailsTableViewCell" customModule="Covid" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstScreenTableViewCell" id="d4Q-u3-cHz" customClass="FirstScreenTableCellTableViewCell" customModule="Covid" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d4Q-u3-cHz" id="dFT-Gs-CTn">
@@ -202,10 +202,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="countryConfirmed" destination="Gf4-k3-jcO" id="dha-Ne-Ppb"/>
-                                            <outlet property="countryDate" destination="GaG-Ps-ouh" id="4B0-gF-vCG"/>
-                                            <outlet property="countryDeaths" destination="EPW-iV-qf9" id="oR3-TM-va5"/>
-                                            <outlet property="countryRecovered" destination="vKR-lU-TNr" id="PgG-c0-mha"/>
+                                            <outlet property="countryConfirmed" destination="Gf4-k3-jcO" id="Cdd-4C-fcM"/>
+                                            <outlet property="countryDate" destination="GaG-Ps-ouh" id="NUK-Pr-lTn"/>
+                                            <outlet property="countryDeaths" destination="EPW-iV-qf9" id="q8P-OI-FpL"/>
+                                            <outlet property="countryRecovered" destination="vKR-lU-TNr" id="Qqv-1h-YzI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
