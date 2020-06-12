@@ -18,12 +18,6 @@ class CountriesViewController: UIViewController{
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -37,8 +31,7 @@ class CountriesViewController: UIViewController{
     
 extension CountriesViewController: UITableViewDataSource{
     func tableView( _ tableView: UITableView, numberOfRowsInSection section: Int)->Int {
-        print("Velicina je \(DatabaseHelper.dbHelper.readAll().count)")
-        return DatabaseHelper.dbHelper.readAll().count
+        return DatabaseHelper.dbHelper.readDistinctNamesCount()
     }
     
     func tableView( _ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -53,7 +46,6 @@ extension CountriesViewController: UITableViewDataSource{
 extension CountriesViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print("selected at row \(indexPath.row)")
         DatabaseHelper.dbHelper.update(id: indexPath.row, value: true)
         navigationController?.popViewController(animated: true)
     }

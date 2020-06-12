@@ -16,8 +16,9 @@ class CountryBase: NSManagedObject{
     @NSManaged var recovered: String
     @NSManaged var deaths: String
     @NSManaged var selected: Bool
+    @NSManaged var date: String
     
-    class func newInstance(id: Int, name:String, confirmed: String, recovered: String, deaths: String, selected: Bool, context: NSManagedObjectContext) -> CountryBase {
+    class func newInstance(id: Int, name:String, confirmed: String, recovered: String, deaths: String, selected: Bool, date: String, context: NSManagedObjectContext) -> CountryBase {
         let item: CountryBase = NSEntityDescription.insertNewObject(forEntityName: "CountryBase", into: context) as! CountryBase
         item.id = id
         item.name = name
@@ -25,6 +26,16 @@ class CountryBase: NSManagedObject{
         item.recovered = recovered
         item.deaths = deaths
         item.selected = selected
+        item.date = date
         return item
+    }
+    
+    func sort(c1: CountryBase, c2: CountryBase) throws -> Bool{
+        if c1.id < c2.id{
+            return true
+        }
+        else{
+            return false
+        }
     }
 }

@@ -11,6 +11,8 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var detailsListCountry: String?
 
     lazy var persistentContainer: NSPersistentContainer = {
            

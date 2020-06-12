@@ -20,6 +20,8 @@
 		7A05CDD92479D388006BE80C /* CountriesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05CDD82479D388006BE80C /* CountriesTableCell.swift */; };
 		7A05CDDB2479D3A0006BE80C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05CDDA2479D3A0006BE80C /* Country.swift */; };
 		7A05CDDD2479D3DF006BE80C /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05CDDC2479D3DF006BE80C /* CountriesViewController.swift */; };
+		7A40BC042493FB150020978A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A40BC032493FB150020978A /* DetailsViewController.swift */; };
+		7A40BC06249423020020978A /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A40BC05249423020020978A /* DetailsTableViewCell.swift */; };
 		7A98F197247AF37B0063B93F /* FirstScreenTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A98F196247AF37B0063B93F /* FirstScreenTableCellTableViewCell.swift */; };
 		7AD267672479E3EA0006C555 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD267662479E3EA0006C555 /* FirstScreenViewController.swift */; };
 		7AF59B8F248D10230076FAE0 /* Covid.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7AF59B8D248D10230076FAE0 /* Covid.xcdatamodeld */; };
@@ -64,6 +66,8 @@
 		7A05CDD82479D388006BE80C /* CountriesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesTableCell.swift; sourceTree = "<group>"; };
 		7A05CDDA2479D3A0006BE80C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		7A05CDDC2479D3DF006BE80C /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
+		7A40BC032493FB150020978A /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		7A40BC05249423020020978A /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		7A98F196247AF37B0063B93F /* FirstScreenTableCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenTableCellTableViewCell.swift; sourceTree = "<group>"; };
 		7AD267662479E3EA0006C555 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		7AF59B8E248D10230076FAE0 /* Covid.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Covid.xcdatamodel; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 		7A05CD9F2479AE9A006BE80C /* Covid */ = {
 			isa = PBXGroup;
 			children = (
+				7A40BC022493FAF50020978A /* DetailsScreen */,
 				7AF59B8C248D0FF70076FAE0 /* Resources */,
 				7A05CDE22479DE86006BE80C /* FirstScreen */,
 				7A05CDD72479D287006BE80C /* TopBar */,
@@ -178,6 +183,15 @@
 				7A98F196247AF37B0063B93F /* FirstScreenTableCellTableViewCell.swift */,
 			);
 			path = FirstScreen;
+			sourceTree = "<group>";
+		};
+		7A40BC022493FAF50020978A /* DetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7A40BC032493FB150020978A /* DetailsViewController.swift */,
+				7A40BC05249423020020978A /* DetailsTableViewCell.swift */,
+			);
+			path = DetailsScreen;
 			sourceTree = "<group>";
 		};
 		7AF59B8C248D0FF70076FAE0 /* Resources */ = {
@@ -328,11 +342,13 @@
 				7A05CDA12479AE9A006BE80C /* AppDelegate.swift in Sources */,
 				7AF59B95248D76BF0076FAE0 /* DatabaseHelper.swift in Sources */,
 				7A05CDA32479AE9A006BE80C /* SceneDelegate.swift in Sources */,
+				7A40BC06249423020020978A /* DetailsTableViewCell.swift in Sources */,
 				7A05CDD92479D388006BE80C /* CountriesTableCell.swift in Sources */,
 				7A98F197247AF37B0063B93F /* FirstScreenTableCellTableViewCell.swift in Sources */,
 				7AF59B8F248D10230076FAE0 /* Covid.xcdatamodeld in Sources */,
 				7AF59B93248D331C0076FAE0 /* CountryBase.swift in Sources */,
 				7A05CDDB2479D3A0006BE80C /* Country.swift in Sources */,
+				7A40BC042493FB150020978A /* DetailsViewController.swift in Sources */,
 				7A05CDD12479B200006BE80C /* TopBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

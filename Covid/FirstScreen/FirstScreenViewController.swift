@@ -25,6 +25,7 @@ class FirstScreenViewController: UIViewController {
         TopBar.setTopBar(image: "add", text: "NEW COVID INFORMATION")
         checkIndexes()
         detailsTable.dataSource = self
+        detailsTable.delegate = self
         detailsTable.reloadData()
     }
 
@@ -33,6 +34,7 @@ class FirstScreenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         checkIndexes()
+        countriesList = countriesList.sorted { $0.id < $1.id}
         hideShowViews()
         detailsTable.reloadData()
     }
@@ -40,7 +42,7 @@ class FirstScreenViewController: UIViewController {
     func checkListForDoubleValues(country: CountryBase) -> Bool{
         var pom: Bool = true
         for element in countriesList{
-            if(element.name == country.name){
+            if(element.id == country.id){
                 pom = false
             }
         }
@@ -51,16 +53,12 @@ class FirstScreenViewController: UIViewController {
         let pom:[CountryBase] = DatabaseHelper.dbHelper.readAll()
         for el in pom{
             if(el.selected == true){
-                print("true")
                 if(countriesList.count != 0){
-                    print("nije prazno")
                     if(checkListForDoubleValues(country: el) == true){
-                        print("ubacujem")
                         countriesList.append(el)
                     }
                 }
                 else{
-                    print("ubacujem")
                     countriesList.append(el)
                 }
             }
@@ -114,6 +112,15 @@ extension FirstScreenViewController: UITableViewDelegate{
             hideShowViews()
            }
        }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let country = DatabaseHelper.dbHelper.read(id: countriesList[indexPath.row].id)
+        appDelegate.detailsListCountry = country.name
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailsVC = storyboard.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
+        show(detailsVC, sender: self)
+    }
 }
 
 

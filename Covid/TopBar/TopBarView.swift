@@ -36,11 +36,11 @@ class TopBarView: UIView{
     func commonI(){
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setConstraints()
-        let rectLabel = CGRect(x: 135, y: 60, width: 220, height: 30)
+        let rectLabel = CGRect(x: 0, y: 60, width: 414, height: 30)
         topLabel = UILabel(frame: rectLabel)
         topLabel.textColor = UIColor.white
         topLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        topLabel.center.x = self.center.x
+        topLabel.textAlignment = .center
         self.addSubview(topLabel)
       
         let rectImage = CGRect(x: 374, y: 60, width: 25, height: 25)
