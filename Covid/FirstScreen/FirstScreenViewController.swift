@@ -34,7 +34,7 @@ class FirstScreenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         checkIndexes()
-        countriesList = countriesList.sorted { $0.id < $1.id}
+        countriesList = countriesList.sorted { $0.name < $1.name}
         hideShowViews()
         detailsTable.reloadData()
     }

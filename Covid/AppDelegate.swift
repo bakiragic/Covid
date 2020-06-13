@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                
         let result = DatabaseHelper.dbHelper.readAll()
         if result.count == 0{
-            print("prazno")
             createData()
         }
         return true

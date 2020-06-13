@@ -32,6 +32,9 @@ class DetailsViewController: UIViewController{
         let appD = UIApplication.shared.delegate as! AppDelegate
         if appD.detailsListCountry?.count != 0{
             detailsTableDates = DatabaseHelper.dbHelper.readByName(name: appD.detailsListCountry!)
+            detailsTableDates = detailsTableDates.sorted{
+                $0.date > $1.date
+            }
         }
     }
     
@@ -45,7 +48,11 @@ extension DetailsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FirstScreenTableViewCell") as! FirstScreenTableCellTableViewCell
-       cell.setCountryDetails(country: detailsTableDates[indexPath.row])
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        formatter.dateFormat = "dd.MM.yyyy"
+        cell.setCountryDetails(country: detailsTableDates[indexPath.row])
         return cell
     }
 }

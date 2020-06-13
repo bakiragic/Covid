@@ -27,7 +27,10 @@ class FirstScreenTableCellTableViewCell: UITableViewCell {
         countryConfirmed.text = country.confirmed
         countryRecovered.text = country.recovered
         countryDeaths.text = country.deaths
-        countryDate.text = country.date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        countryDate.text = formatter.string(from: country.date)
     }
 
 }
