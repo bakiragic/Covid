@@ -18,15 +18,15 @@ class FirstScreenTableCellTableViewCell: UITableViewCell {
 
     func setCountry(country: CountryBase){
         countryName.text = country.name
-        countryConfirmed.text = country.confirmed
-        countryRecovered.text = country.recovered
-        countryDeaths.text = country.deaths
+        countryConfirmed.text = "Confirmed:\(country.confirmed)"
+        countryRecovered.text = "Recovered:\(country.recovered)"
+        countryDeaths.text = "Deaths:\(country.deaths)"
     }
     
     func setCountryDetails(country: CountryBase){
-        countryConfirmed.text = country.confirmed
-        countryRecovered.text = country.recovered
-        countryDeaths.text = country.deaths
+        countryConfirmed.text = "Confirmed:\(country.confirmed)"
+        countryRecovered.text = "Recovered:\(country.recovered)"
+        countryDeaths.text = "Deaths:\(country.deaths)"
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none

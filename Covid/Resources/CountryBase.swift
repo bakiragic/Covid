@@ -12,13 +12,13 @@ import CoreData
 class CountryBase: NSManagedObject{
     @NSManaged var id: Int
     @NSManaged var name: String
-    @NSManaged var confirmed: String
-    @NSManaged var recovered: String
-    @NSManaged var deaths: String
+    @NSManaged var confirmed: Int
+    @NSManaged var recovered: Int
+    @NSManaged var deaths: Int
     @NSManaged var selected: Bool
     @NSManaged var date: Date
     
-    class func newInstance(id: Int, name:String, confirmed: String, recovered: String, deaths: String, selected: Bool, date: String, context: NSManagedObjectContext) -> CountryBase {
+    class func newInstance(id: Int, name:String, confirmed: Int, recovered: Int, deaths: Int, selected: Bool, date: String, context: NSManagedObjectContext) -> CountryBase {
         let item: CountryBase = NSEntityDescription.insertNewObject(forEntityName: "CountryBase", into: context) as! CountryBase
         item.id = id
         item.name = name

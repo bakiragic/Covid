@@ -26,14 +26,18 @@ class DatabaseHelper{
 
                 
         var countriespom: [CountryBase] = []
-        countriespom.append(CountryBase.newInstance(id: 0, name: "Bosnia and Herzegovina", confirmed: "Confirmed: 2704", recovered: "Recovered: 2023", deaths: "Deaths: 160", selected: false, date: "2020-06-01", context: context))
-        countriespom.append(CountryBase.newInstance(id: 1, name: "Croatia", confirmed: "Confirmed: 2247", recovered: "Recovered: 2126", deaths: "Deaths: 104", selected: false, date: "2020-06-01", context:  context))
-        countriespom.append(CountryBase.newInstance(id: 2, name: "Serbia", confirmed: "Confirmed: 11823", recovered: "Recovered: 11348", deaths: "Deaths: 249", selected: false, date: "2020-06-01", context:  context))
-        countriespom.append(CountryBase.newInstance(id: 3, name: "Montenegro", confirmed: "Confirmed: 324", recovered: "Recovered: 315", deaths: "Deaths: 9", selected: false, date: "2020-06-01", context:  context))
-        countriespom.append(CountryBase.newInstance(id: 4, name: "North Macedonia", confirmed: "Confirmed: 3025", recovered: "Recovered: 1646", deaths: "Deaths: 153", selected: false, date: "2020-06-01", context:  context))
-         countriespom.append(CountryBase.newInstance(id: 5, name: "Slovenia", confirmed: "Confirmed: 1485", recovered: "Recovered: 1359", deaths: "Deaths: 109", selected: false, date: "2020-06-01", context:  context))
-        countriespom.append(CountryBase.newInstance(id: 6, name: "Bosnia and Herzegovina", confirmed: "Confirmed: 2901", recovered: "Recovered: 2115", deaths: "Deaths: 157", selected: false, date: "2020-06-12", context:  context))
-        countriespom.append(CountryBase.newInstance(id: 7, name: "Bosnia and Herzegovina", confirmed: "Confirmed: 2950", recovered: "Recovered: 2127", deaths: "Deaths: 159", selected: false, date: "2020-06-13", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 0, name: "Bosnia and Herzegovina", confirmed: 2678, recovered: 2006, deaths: 155, selected: false, date: "2020-06-01", context: context))
+        countriespom.append(CountryBase.newInstance(id: 1, name: "Croatia", confirmed: 2247, recovered: 2126, deaths: 104, selected: false, date: "2020-06-01", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 2, name: "Serbia", confirmed: 11823, recovered: 11348, deaths: 249, selected: false, date: "2020-06-01", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 3, name: "Montenegro", confirmed: 324, recovered: 315, deaths: 9, selected: false, date: "2020-06-01", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 4, name: "North Macedonia", confirmed: 3025, recovered: 1646, deaths: 153, selected: false, date: "2020-06-01", context:  context))
+         countriespom.append(CountryBase.newInstance(id: 5, name: "Slovenia", confirmed: 1485, recovered: 1359, deaths: 109, selected: false, date: "2020-06-01", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 6, name: "Bosnia and Herzegovina", confirmed: 42, recovered: 12, deaths: 1, selected: false, date: "2020-06-12", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 7, name: "Bosnia and Herzegovina", confirmed: 49, recovered: 12, deaths: 0, selected: false, date: "2020-06-13", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 8, name: "Bosnia and Herzegovina", confirmed: 78, recovered: 19, deaths: 2, selected: false, date: "2020-06-11", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 9, name: "Bosnia and Herzegovina", confirmed: 42, recovered: 37, deaths: 0, selected: false, date: "2020-06-10", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 10, name: "Bosnia and Herzegovina", confirmed: 28, recovered: 13, deaths: 0, selected: false, date: "2020-06-09", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 11, name: "Bosnia and Herzegovina", confirmed: 33, recovered: 28, deaths: 1, selected: false, date: "2020-06-08", context:  context))
         do{
             try context.save()
         }
