@@ -18,7 +18,6 @@
 		7A05CDD12479B200006BE80C /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05CDD02479B200006BE80C /* TopBarView.swift */; };
 		7A05CDD32479C5EE006BE80C /* TopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A05CDD22479C5EE006BE80C /* TopBarView.xib */; };
 		7A05CDD92479D388006BE80C /* CountriesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05CDD82479D388006BE80C /* CountriesTableCell.swift */; };
-		7A05CDDB2479D3A0006BE80C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05CDDA2479D3A0006BE80C /* Country.swift */; };
 		7A05CDDD2479D3DF006BE80C /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A05CDDC2479D3DF006BE80C /* CountriesViewController.swift */; };
 		7A40BC042493FB150020978A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A40BC032493FB150020978A /* DetailsViewController.swift */; };
 		7A98F197247AF37B0063B93F /* FirstScreenTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A98F196247AF37B0063B93F /* FirstScreenTableCellTableViewCell.swift */; };
@@ -63,7 +62,6 @@
 		7A05CDD02479B200006BE80C /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		7A05CDD22479C5EE006BE80C /* TopBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopBarView.xib; sourceTree = "<group>"; };
 		7A05CDD82479D388006BE80C /* CountriesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesTableCell.swift; sourceTree = "<group>"; };
-		7A05CDDA2479D3A0006BE80C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		7A05CDDC2479D3DF006BE80C /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
 		7A40BC032493FB150020978A /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		7A98F196247AF37B0063B93F /* FirstScreenTableCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenTableCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				7A05CDD82479D388006BE80C /* CountriesTableCell.swift */,
-				7A05CDDA2479D3A0006BE80C /* Country.swift */,
 				7A05CDDC2479D3DF006BE80C /* CountriesViewController.swift */,
 			);
 			path = Countries;
@@ -343,7 +340,6 @@
 				7A98F197247AF37B0063B93F /* FirstScreenTableCellTableViewCell.swift in Sources */,
 				7AF59B8F248D10230076FAE0 /* Covid.xcdatamodeld in Sources */,
 				7AF59B93248D331C0076FAE0 /* CountryBase.swift in Sources */,
-				7A05CDDB2479D3A0006BE80C /* Country.swift in Sources */,
 				7A40BC042493FB150020978A /* DetailsViewController.swift in Sources */,
 				7A05CDD12479B200006BE80C /* TopBarView.swift in Sources */,
 			);

@@ -14,7 +14,7 @@ class CountriesTableCell: UITableViewCell {
     
     @IBOutlet var countryName: UILabel!
     
-    func setCountryName(country: CountryBase){
-        countryName.text = country.name
+    func setCountryName(country: String){
+        countryName.text = country
     }
 }

@@ -16,7 +16,7 @@ class FirstScreenTableCellTableViewCell: UITableViewCell {
     @IBOutlet var countryDeaths: UILabel!
     @IBOutlet var countryDate: UILabel!
 
-    func setCountry(country: CountryBase){
+    func setCountry(country: CountryBase.Country){
         countryName.text = country.name
         countryConfirmed.text = "Confirmed:\(country.confirmed)"
         countryRecovered.text = "Recovered:\(country.recovered)"
@@ -32,5 +32,4 @@ class FirstScreenTableCellTableViewCell: UITableViewCell {
         formatter.timeStyle = .none
         countryDate.text = formatter.string(from: country.date)
     }
-
 }

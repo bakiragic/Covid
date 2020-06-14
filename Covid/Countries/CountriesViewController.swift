@@ -15,6 +15,7 @@ class CountriesViewController: UIViewController{
     @IBOutlet var tableView: UITableView!
     @IBOutlet var TopBarView: TopBarView!
     @IBOutlet var sendDataButton: UIButton!
+    var countriesNames: [String]!
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -22,21 +23,24 @@ class CountriesViewController: UIViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         TopBarView.setTopBar(image: "close", text: "CHOOSE COUNTRY")
+        countriesNames = DatabaseHelper.dbHelper.readDistinctNames()
+        countriesNames = countriesNames.sorted{ $0 < $1}
         tableView.dataSource = self
         tableView.delegate = self
     }
     
-    
+    @IBAction func backButtonToFirst(sender: UIButton){
+        navigationController?.popViewController(animated: true)
+    }
 }
     
 extension CountriesViewController: UITableViewDataSource{
     func tableView( _ tableView: UITableView, numberOfRowsInSection section: Int)->Int {
-        return DatabaseHelper.dbHelper.readDistinctNamesCount()
+        return countriesNames.count
     }
     
     func tableView( _ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let country:CountryBase = DatabaseHelper.dbHelper.read(id: indexPath.row)
-        print(country.name)
+        let country = countriesNames[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountriesTableCell") as! CountriesTableCell
         cell.setCountryName(country: country)
         return cell
@@ -46,7 +50,8 @@ extension CountriesViewController: UITableViewDataSource{
 extension CountriesViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        DatabaseHelper.dbHelper.update(id: indexPath.row, value: true)
+        DatabaseHelper.dbHelper.update(name: countriesNames[indexPath.row], value: true)
+        appDelegate.insert(element: countriesNames[indexPath.row])
         navigationController?.popViewController(animated: true)
     }
 }

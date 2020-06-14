@@ -23,11 +23,9 @@ class DatabaseHelper{
         formatter.timeStyle = .none
         formatter.dateFormat = "yyyy-MM-dd"
 
-
-                
         var countriespom: [CountryBase] = []
         countriespom.append(CountryBase.newInstance(id: 0, name: "Bosnia and Herzegovina", confirmed: 2678, recovered: 2006, deaths: 155, selected: false, date: "2020-06-01", context: context))
-        countriespom.append(CountryBase.newInstance(id: 1, name: "Croatia", confirmed: 2247, recovered: 2126, deaths: 104, selected: false, date: "2020-06-01", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 11, name: "Croatia", confirmed: 2247, recovered: 2126, deaths: 104, selected: false, date: "2020-06-01", context:  context))
         countriespom.append(CountryBase.newInstance(id: 2, name: "Serbia", confirmed: 11823, recovered: 11348, deaths: 249, selected: false, date: "2020-06-01", context:  context))
         countriespom.append(CountryBase.newInstance(id: 3, name: "Montenegro", confirmed: 324, recovered: 315, deaths: 9, selected: false, date: "2020-06-01", context:  context))
         countriespom.append(CountryBase.newInstance(id: 4, name: "North Macedonia", confirmed: 3025, recovered: 1646, deaths: 153, selected: false, date: "2020-06-01", context:  context))
@@ -37,7 +35,7 @@ class DatabaseHelper{
         countriespom.append(CountryBase.newInstance(id: 8, name: "Bosnia and Herzegovina", confirmed: 78, recovered: 19, deaths: 2, selected: false, date: "2020-06-11", context:  context))
         countriespom.append(CountryBase.newInstance(id: 9, name: "Bosnia and Herzegovina", confirmed: 42, recovered: 37, deaths: 0, selected: false, date: "2020-06-10", context:  context))
         countriespom.append(CountryBase.newInstance(id: 10, name: "Bosnia and Herzegovina", confirmed: 28, recovered: 13, deaths: 0, selected: false, date: "2020-06-09", context:  context))
-        countriespom.append(CountryBase.newInstance(id: 11, name: "Bosnia and Herzegovina", confirmed: 33, recovered: 28, deaths: 1, selected: false, date: "2020-06-08", context:  context))
+        countriespom.append(CountryBase.newInstance(id: 1, name: "Bosnia and Herzegovina", confirmed: 33, recovered: 28, deaths: 1, selected: false, date: "2020-06-08", context:  context))
         do{
             try context.save()
         }
@@ -72,13 +70,12 @@ class DatabaseHelper{
         let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "CountryBase")
         fetchReq.predicate = NSPredicate(format: "name == %@", name)
 
-               
-               do{
-                   country = try context.fetch(fetchReq) as! [CountryBase]
-               }
-               catch{
-                   print("Failed retrieving data")
-               }
+        do{
+            country = try context.fetch(fetchReq) as! [CountryBase]
+        }
+        catch{
+            print("Failed retrieving data")
+        }
         return country
     }
     
@@ -98,10 +95,10 @@ class DatabaseHelper{
         return country
     }
     
-    func readDistinctNamesCount() -> Int{
+    func readDistinctNames() -> [String]{
         var names:[String] = []
         let column = "name"
-        guard let appD = UIApplication.shared.delegate as? AppDelegate else{return 0}
+        guard let appD = UIApplication.shared.delegate as? AppDelegate else{return names}
         let context = appD.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CountryBase")
         request.resultType = .dictionaryResultType
@@ -110,7 +107,7 @@ class DatabaseHelper{
         if let res = try? context.fetch(request) as? [[String: String]] {
             names = res.compactMap { $0[column] }
         }
-        return names.count
+        return names
     }
     
    func readLatestDate(id: Int)-> CountryBase{
@@ -123,7 +120,6 @@ class DatabaseHelper{
         else{
             return countryDate[0]
         }
-   
     }
     
     func readByNameAndId(id: Int, name: String) -> [CountryBase]{
@@ -143,32 +139,18 @@ class DatabaseHelper{
         return countries
     }
     
-    func readGroupofNames(names:[String])->[CountryBase]{
-        var countries:[CountryBase] = []
-        guard let appD = UIApplication.shared.delegate as? AppDelegate else{return countries}
-        let context = appD.persistentContainer.viewContext
-        let fetchReq:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CountryBase")
-               fetchReq.predicate = NSPredicate(format: "name IN %@", names)
-        do{
-            countries = try context.fetch(fetchReq) as! [CountryBase]
-        }
-        catch{
-            print("error in fetch")
-        }
-        return countries
-    }
-    
-    
-    func update(id: Int, value: Bool){
+    func update(name: String, value: Bool){
         guard let appD = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appD.persistentContainer.viewContext
         let fetchReq:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "CountryBase")
-        fetchReq.predicate = NSPredicate(format: "%K == %i", "id", id)
+        fetchReq.predicate = NSPredicate(format: "name == %@", name)
         
         do{
             let test = try context.fetch(fetchReq)
             let updateObj = test as! [NSManagedObject]
-            updateObj[0].setValue(value, forKey: "selected")
+            for i in updateObj{
+                i.setValue(value, forKey: "selected")
+            }
             do{
                 try context.save()
             }
