@@ -149,7 +149,6 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaG-Ps-ouh">
                                                     <rect key="frame" x="20" y="35" width="339" height="26"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="MSJ-5y-ifY"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="339" id="NML-Sj-3gh"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
